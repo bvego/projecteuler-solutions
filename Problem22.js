@@ -3,7 +3,10 @@ const fs = require('fs');
 const alphabet = [...Array(26)].map((_, i) => String.fromCharCode(65 + i));
 
 const input = fs.readFileSync('names.txt', 'utf8');
-const names = input.split(',').map(name => name.replace(/"/g, ''));
+const names = input
+  .split(',')
+  .map(name => name.replace(/"/g, ''))
+  .sort();
 
 const calculateNameScore = name => {
   let sum = 0;
